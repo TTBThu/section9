@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section09</title>
+</head>
+<body>
+    <script>
+        //bài 1
+        // cách 1
+        let array = ['c', 's', 'c', '2', '6', '1'];
+        let yarra = array.reverse();
+        let ketQua = yarra.join('');
+        console.log(ketQua);
+        //cách 2
+        var inputString = prompt('Nhập vào chuỗi ký tự:');
+        var charArray = inputString.split('');
+        let reversedString = '';
+        for (let i = charArray.length - 1; i >= 0; i--) {
+            reversedString += charArray[i];
+        }
+        console.log(`Chuỗi sau khi đảo ngược: ${reversedString}`);
+
+        //bài 2
+        var inputNumber = prompt("Nhập một số:");
+        let result = "";
+        if (isNaN(inputNumber)) {
+            alert("Vui lòng nhập lại một số");
+        } else{
+            for (let i = 0; i < inputNumber.length; i++) {
+                result += inputNumber[i];
+                var digit = parseInt(inputNumber[i]);
+                if (!isNaN(digit) && digit % 2 === 0) {
+                    if (i < inputNumber.length - 1 && parseInt(inputNumber[i + 1]) % 2 === 0) {
+                        result += '-';
+                    }
+                }
+            }
+            console.log("Kết quả: " + result);
+        }
+
+        //bài 3
+        //cách 1
+        let numbers = [1, 5, 8, 7, 9, 6, 5, 41, 2, 6, 55, 4, 8];
+        let maxNumber = numbers[0];
+        for (let i = 1; i < numbers.length; i++) {
+            if (numbers[i] > maxNumber) {
+                maxNumber = numbers[i];
+            }
+        }
+        console.log("Số lớn nhất trong mảng là: " + maxNumber);
+        //cách 2
+        let lonNhat = Math.max(...numbers);
+        console.log("Số lớn nhất trong mảng là: " + lonNhat);
+
+        //bài 4
+        var nhapVao = prompt("Nhập một chuỗi: ");
+        let thanhQua = '';
+        for (let i = 0; i < nhapVao.length; i++) {
+            var currentChar = nhapVao[i];
+            if (currentChar === currentChar.toLowerCase()) {
+                thanhQua += currentChar.toUpperCase();
+            } else {thanhQua += currentChar.toLowerCase();}
+        }
+        console.log(thanhQua);
+
+        //bài 5
+        let daySo = [1, 5, 8, 7, 9, 6, 5, 41, 2, 6, 55, 4, 8];
+        for (let i = 0; i < daySo.length - 1; i++) {
+            for (let j = 0; j < daySo.length - 1 - i; j++) {
+                if (daySo[j] > daySo[j + 1]) {
+                    let viTri = daySo[j];
+                    daySo[j] = daySo[j + 1];
+                    daySo[j + 1] = viTri;
+                }
+            }
+        }
+        console.log(daySo);
+    </script>
+</body>
+</html>
